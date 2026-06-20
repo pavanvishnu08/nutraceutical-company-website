@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils"
 
 type Props = {
+  index?: string
   eyebrow: string
   title: string
   description?: string
@@ -10,6 +11,7 @@ type Props = {
 }
 
 export function SectionHeading({
+  index,
   eyebrow,
   title,
   description,
@@ -21,22 +23,33 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "max-w-2xl",
-        align === "center" ? "mx-auto text-center" : "text-left",
+        align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-3xl text-left",
         className,
       )}
     >
-      <span
+      <div
         className={cn(
-          "text-xs font-semibold uppercase tracking-[0.18em]",
-          inverse ? "text-accent" : "text-primary",
+          "flex items-center gap-4",
+          align === "center" && "justify-center",
         )}
       >
-        {eyebrow}
-      </span>
+        {index && (
+          <span
+            className={cn(
+              "font-mono text-xs tabular-nums",
+              inverse ? "text-accent" : "text-gold",
+            )}
+          >
+            {index}
+          </span>
+        )}
+        <span className={cn("eyebrow", inverse ? "text-accent" : "text-primary")}>
+          {eyebrow}
+        </span>
+      </div>
       <h2
         className={cn(
-          "mt-3 text-pretty font-heading text-3xl font-bold leading-tight tracking-tight sm:text-4xl",
+          "display mt-5 text-pretty text-4xl sm:text-5xl",
           inverse ? "text-primary-foreground" : "text-foreground",
         )}
       >
@@ -45,7 +58,7 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            "mt-4 text-pretty text-base leading-relaxed sm:text-lg",
+            "mt-5 text-pretty text-base leading-relaxed sm:text-lg",
             inverse ? "text-primary-foreground/75" : "text-muted-foreground",
           )}
         >

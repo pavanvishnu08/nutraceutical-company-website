@@ -7,9 +7,10 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const fieldClass =
-  "w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground shadow-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+  "w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/15"
 
-const labelClass = "mb-1.5 block text-sm font-medium text-foreground"
+const labelClass =
+  "mb-2 block font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground"
 
 export function InquiryForm() {
   const [submitted, setSubmitted] = useState(false)
@@ -20,37 +21,38 @@ export function InquiryForm() {
   }
 
   return (
-    <section id="inquiry" className="bg-secondary py-20 sm:py-28">
+    <section id="inquiry" className="bg-secondary py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              Inquiry &amp; Bulk Orders
-            </span>
-            <h2 className="mt-3 text-pretty font-heading text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
+            <div className="flex items-center gap-4">
+              <span className="font-mono text-xs tabular-nums text-gold">08</span>
+              <span className="eyebrow text-primary">Inquiry &amp; Bulk Orders</span>
+            </div>
+            <h2 className="display mt-5 text-pretty text-4xl text-foreground sm:text-5xl">
               Let&apos;s build your formulation
             </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground">
               Share your requirements and our technical sales team will respond with
               specifications, documentation and bulk pricing — typically within one
               business day.
             </p>
 
-            <ul className="mt-8 space-y-4">
-              <li className="flex items-center gap-3 text-sm text-foreground">
-                <span className="flex size-10 items-center justify-center rounded-lg bg-background text-primary">
+            <ul className="mt-10 flex flex-col">
+              <li className="flex items-center gap-4 border-t border-border py-4 text-sm text-foreground">
+                <span className="flex size-10 items-center justify-center rounded-full bg-card text-primary">
                   <Mail className="size-5" aria-hidden="true" />
                 </span>
                 sales@verdantiabio.com
               </li>
-              <li className="flex items-center gap-3 text-sm text-foreground">
-                <span className="flex size-10 items-center justify-center rounded-lg bg-background text-primary">
+              <li className="flex items-center gap-4 border-t border-border py-4 text-sm text-foreground">
+                <span className="flex size-10 items-center justify-center rounded-full bg-card text-primary">
                   <Phone className="size-5" aria-hidden="true" />
                 </span>
                 +1 (800) 555-0142
               </li>
-              <li className="flex items-center gap-3 text-sm text-foreground">
-                <span className="flex size-10 items-center justify-center rounded-lg bg-background text-primary">
+              <li className="flex items-center gap-4 border-y border-border py-4 text-sm text-foreground">
+                <span className="flex size-10 items-center justify-center rounded-full bg-card text-primary">
                   <MapPin className="size-5" aria-hidden="true" />
                 </span>
                 Global HQ — Boston, USA
@@ -58,21 +60,21 @@ export function InquiryForm() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+          <div className="rounded-3xl border border-border bg-card p-7 shadow-sm sm:p-10">
             {submitted ? (
               <div className="flex h-full flex-col items-center justify-center py-12 text-center">
                 <span className="flex size-16 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <CheckCircle2 className="size-8" aria-hidden="true" />
                 </span>
-                <h3 className="mt-6 font-heading text-2xl font-bold text-foreground">
+                <h3 className="mt-6 font-heading text-3xl font-light text-foreground">
                   Inquiry received
                 </h3>
-                <p className="mt-2 max-w-sm text-muted-foreground">
+                <p className="mt-3 max-w-sm text-muted-foreground">
                   Thank you. Our technical sales team will be in touch shortly with
                   specifications and pricing.
                 </p>
                 <Button
-                  className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="mt-7 rounded-full bg-primary px-7 text-primary-foreground hover:bg-primary/90"
                   onClick={() => setSubmitted(false)}
                 >
                   Submit another inquiry
@@ -142,7 +144,7 @@ export function InquiryForm() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                    className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
                   >
                     Submit Inquiry
                   </Button>

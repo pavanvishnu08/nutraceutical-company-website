@@ -1,9 +1,13 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Manrope, Inter, Geist_Mono } from 'next/font/google'
+import { Fraunces, Inter, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
-const manrope = Manrope({ variable: '--font-heading', subsets: ['latin'] })
+const fraunces = Fraunces({
+  variable: '--font-heading',
+  subsets: ['latin'],
+  axes: ['opsz', 'SOFT'],
+})
 const inter = Inter({ variable: '--font-body', subsets: ['latin'] })
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -50,7 +54,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${inter.variable} ${geistMono.variable} bg-background`}
+      className={`${fraunces.variable} ${inter.variable} ${geistMono.variable} bg-background`}
     >
       <body className="font-sans antialiased">
         {children}

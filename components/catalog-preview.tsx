@@ -18,37 +18,40 @@ export function CatalogPreview() {
   }, [])
 
   return (
-    <section id="catalog" className="bg-background py-20 sm:py-28">
+    <section id="catalog" className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
+          index="07"
           eyebrow="Product Catalog"
           title="Browse our standardized extract catalog"
           description="A preview of our most-requested actives. Use quick view for specifications, or request the full catalog."
         />
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {ingredients.slice(0, 4).map((item) => (
             <div
               key={item.slug}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-shadow duration-300 hover:shadow-[0_30px_60px_-35px_rgba(35,75,58,0.4)]"
             >
               <div className="overflow-hidden bg-secondary">
                 <img
                   src={item.image || "/placeholder.svg"}
                   alt={item.name}
-                  className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="aspect-square w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
-              <div className="p-5">
-                <h3 className="font-heading text-base font-bold text-foreground">
+              <div className="p-6">
+                <h3 className="font-heading text-lg font-medium text-foreground">
                   {item.name}
                 </h3>
-                <p className="mt-1 text-xs text-muted-foreground">{item.standardization}</p>
+                <p className="mt-1 font-mono text-[11px] tracking-wide text-muted-foreground">
+                  {item.standardization}
+                </p>
               </div>
               <button
                 type="button"
                 onClick={() => setActive(item)}
-                className="absolute inset-x-4 bottom-4 inline-flex translate-y-3 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                className="absolute inset-x-5 bottom-5 inline-flex translate-y-3 items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground opacity-0 shadow-lg transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
               >
                 <Eye className="size-4" aria-hidden="true" />
                 Quick View
@@ -57,12 +60,12 @@ export function CatalogPreview() {
           ))}
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div className="mt-14 flex justify-center">
           <Button
             asChild
             size="lg"
             variant="outline"
-            className="border-primary/30 text-primary hover:bg-secondary"
+            className="rounded-full border-primary/30 px-7 text-primary hover:bg-secondary"
           >
             <a href="#inquiry">
               Request Full Catalog

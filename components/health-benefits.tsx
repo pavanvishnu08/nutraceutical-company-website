@@ -59,71 +59,95 @@ const benefits = [
 
 export function HealthBenefits() {
   const [active, setActive] = useState(0)
+  const ActiveIcon = benefits[active].icon
 
   return (
-    <section className="bg-background py-20 sm:py-28">
+    <section className="bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
+          index="03"
+          align="left"
           eyebrow="Health Benefits"
           title="Targeted wellness, backed by botany"
           description="Explore the functional benefit areas our extracts are formulated to support. Select a category to learn more."
         />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-stretch">
+          {/* selectable list */}
+          <ul className="flex flex-col">
             {benefits.map((b, i) => {
               const selected = i === active
               return (
-                <button
-                  key={b.title}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  aria-pressed={selected}
-                  className={cn(
-                    "flex flex-col items-start gap-3 rounded-xl border p-5 text-left transition-all duration-200",
-                    selected
-                      ? "border-primary bg-primary text-primary-foreground shadow-lg"
-                      : "border-border bg-card text-foreground hover:border-primary/40 hover:bg-secondary",
-                  )}
-                >
-                  <span
+                <li key={b.title}>
+                  <button
+                    type="button"
+                    onClick={() => setActive(i)}
+                    aria-pressed={selected}
                     className={cn(
-                      "flex size-11 items-center justify-center rounded-lg transition-colors",
-                      selected ? "bg-primary-foreground/15 text-primary-foreground" : "bg-secondary text-primary",
+                      "group flex w-full items-center gap-5 border-b border-border py-5 text-left transition-colors",
+                      selected ? "border-primary" : "hover:border-foreground/30",
                     )}
                   >
-                    <b.icon className="size-5" aria-hidden="true" />
-                  </span>
-                  <span className="font-heading text-sm font-semibold leading-tight">
-                    {b.title}
-                  </span>
-                </button>
+                    <span
+                      className={cn(
+                        "font-mono text-xs tabular-nums transition-colors",
+                        selected ? "text-gold" : "text-muted-foreground",
+                      )}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className={cn(
+                        "flex size-11 items-center justify-center rounded-full border transition-colors",
+                        selected
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-border text-muted-foreground group-hover:text-foreground",
+                      )}
+                    >
+                      <b.icon className="size-5" aria-hidden="true" />
+                    </span>
+                    <span
+                      className={cn(
+                        "font-heading text-xl transition-colors",
+                        selected
+                          ? "font-medium text-foreground"
+                          : "font-light text-muted-foreground group-hover:text-foreground",
+                      )}
+                    >
+                      {b.title}
+                    </span>
+                  </button>
+                </li>
               )
             })}
-          </div>
+          </ul>
 
-          <div className="rounded-2xl border border-border bg-secondary p-8 lg:p-10">
-            <span className="flex size-14 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-              {(() => {
-                const Icon = benefits[active].icon
-                return <Icon className="size-7" aria-hidden="true" />
-              })()}
-            </span>
-            <h3 className="mt-6 font-heading text-2xl font-bold text-foreground">
-              {benefits[active].title}
-            </h3>
-            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-              {benefits[active].description}
-            </p>
-            <div className="mt-6">
-              <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+          {/* feature panel */}
+          <div className="relative flex flex-col justify-between overflow-hidden rounded-3xl bg-secondary p-9 lg:p-12">
+            <ActiveIcon
+              className="pointer-events-none absolute -right-6 -top-6 size-44 text-primary/5"
+              aria-hidden="true"
+            />
+            <div className="relative">
+              <span className="flex size-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+                <ActiveIcon className="size-7" aria-hidden="true" />
+              </span>
+              <h3 className="mt-7 font-heading text-3xl font-light tracking-tight text-foreground">
+                {benefits[active].title}
+              </h3>
+              <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
+                {benefits[active].description}
+              </p>
+            </div>
+            <div className="relative mt-10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-gold">
                 Key Extracts
               </p>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {benefits[active].ingredients.map((ing) => (
                   <span
                     key={ing}
-                    className="rounded-full border border-border bg-background px-3 py-1 text-sm font-medium text-foreground"
+                    className="rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-foreground"
                   >
                     {ing}
                   </span>
