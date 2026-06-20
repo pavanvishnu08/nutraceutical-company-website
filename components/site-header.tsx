@@ -1,21 +1,24 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Leaf, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { label: "Ingredients", href: "#ingredients" },
-  { label: "Science", href: "#science" },
-  { label: "Manufacturing", href: "#manufacturing" },
-  { label: "Industries", href: "#industries" },
-  { label: "Catalog", href: "#catalog" },
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/catalog" },
+  { label: "Manufacturing", href: "/manufacturing" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ]
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -23,6 +26,9 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href)
 
   return (
     <header
@@ -34,7 +40,7 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5">
           <span className="flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
             <Leaf className="size-5" aria-hidden="true" />
           </span>
@@ -46,17 +52,22 @@ export function SiteHeader() {
               Biosciences
             </span>
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-primary",
+                isActive(link.href)
+                  ? "text-primary"
+                  : "text-foreground/80",
+              )}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -66,10 +77,10 @@ export function SiteHeader() {
             variant="ghost"
             className="text-foreground hover:bg-secondary hover:text-primary"
           >
-            <a href="#certifications">Certifications</a>
+            <Link href="/about#certifications">Certifications</Link>
           </Button>
           <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-            <a href="#inquiry">Request a Quote</a>
+            <Link href="/contact">Request a Quote</Link>
           </Button>
         </div>
 
@@ -88,19 +99,24 @@ export function SiteHeader() {
         <div className="border-t border-border bg-background lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-4" aria-label="Mobile">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-base font-medium text-foreground/90 hover:bg-secondary"
+                className={cn(
+                  "rounded-md px-3 py-3 text-base font-medium hover:bg-secondary",
+                  isActive(link.href)
+                    ? "text-primary"
+                    : "text-foreground/90",
+                )}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <Button asChild className="mt-2 bg-primary text-primary-foreground hover:bg-primary/90">
-              <a href="#inquiry" onClick={() => setOpen(false)}>
+              <Link href="/contact" onClick={() => setOpen(false)}>
                 Request a Quote
-              </a>
+              </Link>
             </Button>
           </nav>
         </div>

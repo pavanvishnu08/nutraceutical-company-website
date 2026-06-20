@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { Eye, X, ArrowRight } from "lucide-react"
 import { ingredients, type Ingredient } from "@/lib/site-data"
 import { SectionHeading } from "@/components/section-heading"
@@ -24,7 +25,7 @@ export function CatalogPreview() {
           index="07"
           eyebrow="Product Catalog"
           title="Browse our standardized extract catalog"
-          description="A preview of our most-requested actives. Use quick view for specifications, or request the full catalog."
+          description="A preview of our most-requested actives. Use quick view for specifications, or explore the full catalog."
         />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -67,17 +68,17 @@ export function CatalogPreview() {
             variant="outline"
             className="rounded-full border-primary/30 px-7 text-primary hover:bg-secondary"
           >
-            <a href="#inquiry">
-              Request Full Catalog
+            <Link href="/catalog">
+              View Full Catalog
               <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
 
       {active && (
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+          className="fixed inset-0 z-60 flex items-center justify-center p-4"
           role="dialog"
           aria-modal="true"
           aria-label={`${active.name} details`}
@@ -154,14 +155,25 @@ export function CatalogPreview() {
                   </div>
                 </div>
 
-                <Button
-                  asChild
-                  className="mt-6 w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                >
-                  <a href="#inquiry" onClick={() => setActive(null)}>
-                    Request Bulk Quote
-                  </a>
-                </Button>
+                <div className="mt-6 flex gap-3">
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="flex-1 border-primary/30 text-primary hover:bg-secondary"
+                  >
+                    <Link href={`/products/${active.slug}`} onClick={() => setActive(null)}>
+                      View Details
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
+                  >
+                    <Link href="/contact" onClick={() => setActive(null)}>
+                      Request Quote
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

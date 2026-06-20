@@ -1,12 +1,13 @@
+import Link from "next/link"
 import { Leaf, MapPin } from "lucide-react"
 
 const quickLinks = [
-  { label: "Ingredients", href: "#ingredients" },
-  { label: "The Science", href: "#science" },
-  { label: "Manufacturing", href: "#manufacturing" },
-  { label: "Industries", href: "#industries" },
-  { label: "Catalog", href: "#catalog" },
-  { label: "Request a Quote", href: "#inquiry" },
+  { label: "Products", href: "/catalog" },
+  { label: "Manufacturing", href: "/manufacturing" },
+  { label: "About Us", href: "/about" },
+  { label: "Certifications", href: "/about#certifications" },
+  { label: "Contact", href: "/contact" },
+  { label: "Request a Quote", href: "/contact" },
 ]
 
 const certifications = ["FDA Registered", "GMP Certified", "ISO 9001 & 22000", "HACCP", "Organic"]
@@ -23,7 +24,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-2.5">
+            <Link href="/" className="flex items-center gap-2.5">
               <span className="flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
                 <Leaf className="size-5" aria-hidden="true" />
               </span>
@@ -35,7 +36,7 @@ export function SiteFooter() {
                   Biosciences
                 </span>
               </span>
-            </div>
+            </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-background/65">
               High-purity botanical extracts and active ingredients for the global
               pharmaceutical, nutraceutical and wellness industries.
@@ -58,13 +59,13 @@ export function SiteFooter() {
             </h3>
             <ul className="mt-4 space-y-2.5">
               {quickLinks.map((l) => (
-                <li key={l.href}>
-                  <a
+                <li key={l.label}>
+                  <Link
                     href={l.href}
                     className="text-sm text-background/65 transition-colors hover:text-accent"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -102,12 +103,12 @@ export function SiteFooter() {
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-background/15 pt-8 text-sm text-background/55 sm:flex-row">
           <p>© {new Date().getFullYear()} Verdantia Biosciences. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="transition-colors hover:text-accent">
+            <Link href="#" className="transition-colors hover:text-accent">
               Privacy Policy
-            </a>
-            <a href="#" className="transition-colors hover:text-accent">
+            </Link>
+            <Link href="#" className="transition-colors hover:text-accent">
               Terms of Use
-            </a>
+            </Link>
           </div>
         </div>
       </div>
