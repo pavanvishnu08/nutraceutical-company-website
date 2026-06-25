@@ -43,7 +43,7 @@ export function InquiryForm() {
                 <span className="flex size-10 items-center justify-center rounded-full bg-card text-primary">
                   <Mail className="size-5" aria-hidden="true" />
                 </span>
-                sales@verdantiabio.com
+                sales@naturesole.com
               </li>
               <li className="flex items-center gap-4 border-t border-border py-4 text-sm text-foreground">
                 <span className="flex size-10 items-center justify-center rounded-full bg-card text-primary">

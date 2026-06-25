@@ -66,7 +66,7 @@ export function Industries() {
             </h2>
             <p className="mt-6 text-pretty text-lg leading-relaxed text-background/70">
               From regulated pharmaceutical manufacturers to fast-growing wellness
-              brands, formulators rely on Verdantia for dependable, compliant supply.
+              brands, formulators rely on Nature Sole Industries for dependable, compliant supply.
             </p>
           </div>
         </ScrollReveal>

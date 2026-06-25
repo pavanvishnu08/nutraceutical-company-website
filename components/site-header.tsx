@@ -45,10 +45,10 @@ export function SiteHeader() {
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-heading text-lg font-bold tracking-tight text-foreground">
-              Verdantia
+              Nature Sole
             </span>
             <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Biosciences
+              Industries Pvt Ltd
             </span>
           </span>
         </Link>

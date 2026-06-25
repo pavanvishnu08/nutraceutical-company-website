@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Verdantia Biosciences | Premium Botanical Extracts & Active Ingredients',
+  title: 'Nature Sole Industries Pvt Ltd | Premium Botanical Extracts & Active Ingredients',
   description:
-    'Verdantia Biosciences manufactures high-purity botanical extracts and active ingredients — Curcumin, Ashwagandha, Moringa, Spirulina and more — for pharmaceutical, nutraceutical and wellness brands worldwide.',
+    'Nature Sole Industries Pvt Ltd manufactures high-purity botanical extracts and active ingredients — Curcumin, Ashwagandha, Moringa, Spirulina and more — for pharmaceutical, nutraceutical and wellness brands worldwide.',
   generator: 'v0.app',
   icons: {
     icon: [

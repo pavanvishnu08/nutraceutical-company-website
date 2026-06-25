@@ -584,7 +584,7 @@ export default async function ProductDetailPage({
             <div className="mt-16 overflow-hidden rounded-3xl border border-primary-foreground/10">
               <ProductImage
                 src="/images/facility.png"
-                alt="Verdantia Biosciences extraction facility"
+                alt="Nature Sole Industries Pvt Ltd extraction facility"
                 className="h-52 w-full object-cover opacity-60"
                 fallbackLabel="Manufacturing Facility"
               />

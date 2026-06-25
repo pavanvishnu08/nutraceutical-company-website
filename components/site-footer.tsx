@@ -30,10 +30,10 @@ export function SiteFooter() {
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-heading text-lg font-bold tracking-tight">
-                  Verdantia
+                  Nature Sole
                 </span>
                 <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-background/60">
-                  Biosciences
+                  Industries Pvt Ltd
                 </span>
               </span>
             </Link>
@@ -93,7 +93,7 @@ export function SiteFooter() {
               Contact
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-background/65">
-              <li>sales@verdantiabio.com</li>
+              <li>sales@naturesole.com</li>
               <li>+1 (800) 555-0142</li>
               <li>Mon–Fri, 9:00–18:00 EST</li>
             </ul>
@@ -101,7 +101,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-background/15 pt-8 text-sm text-background/55 sm:flex-row">
-          <p>© {new Date().getFullYear()} Verdantia Biosciences. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Nature Sole Industries Pvt Ltd. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="#" className="transition-colors hover:text-accent">
               Privacy Policy

@@ -25,7 +25,7 @@ const stats = [
 ]
 
 const milestones = [
-  { year: "1998", title: "Founded in Boston", desc: "Verdantia Biosciences established with a mission to bridge ancient botanical wisdom and modern pharmaceutical science." },
+  { year: "1998", title: "Founded in Boston", desc: "Nature Sole Industries Pvt Ltd established with a mission to bridge ancient botanical wisdom and modern pharmaceutical science." },
   { year: "2005", title: "First GMP Facility", desc: "Opened our first GMP-certified extraction facility in Hyderabad, India — enabling scalable, traceable pharmaceutical-grade production." },
   { year: "2011", title: "ISO 9001 Certified", desc: "Received ISO 9001 quality management certification, formalizing our systems-based approach to consistent product excellence." },
   { year: "2016", title: "EU Distribution Hub", desc: "Established a Rotterdam-based distribution center to serve European pharmaceutical and nutraceutical clients under EU GMP standards." },
@@ -83,13 +83,13 @@ export default function AboutPage() {
         <section className="relative bg-secondary pt-18">
           <div className="mx-auto max-w-7xl px-5 pb-20 pt-20 sm:px-8 sm:pb-28 sm:pt-28">
             <div className="max-w-3xl">
-              <span className="eyebrow text-primary">About Verdantia</span>
+              <span className="eyebrow text-primary">About Nature Sole</span>
               <h1 className="display mt-6 text-pretty text-5xl text-foreground sm:text-6xl lg:text-[4.25rem]">
                 25 years of botanical
                 <span className="italic text-primary"> science</span>
               </h1>
               <p className="mt-7 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-                Founded in 1998, Verdantia Biosciences bridges ancient botanical wisdom with
+                Founded in 1998, Nature Sole Industries Pvt Ltd bridges ancient botanical wisdom with
                 modern pharmaceutical manufacturing — delivering high-purity, traceable plant
                 extracts to global formulators.
               </p>
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 />
                 <div className="mt-8 space-y-5 text-muted-foreground leading-relaxed">
                   <p>
-                    Verdantia Biosciences was founded with a singular conviction: that the
+                    Nature Sole Industries Pvt Ltd was founded with a singular conviction: that the
                     therapeutic compounds found in plants deserve the same rigor, documentation
                     and consistency that pharmaceutical APIs receive. In 1998, our founder
                     Dr. Priya Srinivasan left her post at a major pharmaceutical company to
@@ -145,7 +145,7 @@ export default function AboutPage() {
                 <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-[0_40px_80px_-40px_rgba(35,75,58,0.45)]">
                   <img
                     src="/images/hero-lab.png"
-                    alt="Verdantia Biosciences founding team in the original laboratory, 1998"
+                    alt="Nature Sole Industries Pvt Ltd founding team in the original laboratory, 1998"
                     className="aspect-4/3 w-full object-cover"
                   />
                 </div>
@@ -298,7 +298,7 @@ export default function AboutPage() {
                 <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-[0_40px_80px_-40px_rgba(35,75,58,0.45)]">
                   <img
                     src="/images/facility.png"
-                    alt="Analytical chemistry team working in Verdantia R&D laboratory"
+                    alt="Analytical chemistry team working in Nature Sole Industries R&D laboratory"
                     className="aspect-4/3 w-full object-cover"
                   />
                 </div>

@@ -328,7 +328,7 @@ export default function ManufacturingPage() {
                 index="03"
                 eyebrow="Quality Management System"
                 title="A quality culture, not just a quality department"
-                description="Quality at Verdantia is built into every process, not bolted on at the end."
+                description="Quality at Nature Sole Industries is built into every process, not bolted on at the end."
               />
             </ScrollReveal>
 

@@ -54,7 +54,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-7 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
-            Verdantia Biosciences manufactures high-purity plant extracts and active
+            Nature Sole Industries Pvt Ltd manufactures high-purity plant extracts and active
             ingredients trusted by pharmaceutical, nutraceutical and wellness brands
             across the globe — engineered for potency, consistency and absolute
             traceability.

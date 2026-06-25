@@ -27,7 +27,7 @@ const contactChannels = [
   {
     icon: Mail,
     title: "Sales Inquiries",
-    value: "sales@verdantiabio.com",
+    value: "sales@naturesole.com",
     detail: "Bulk orders, pricing, documentation",
   },
   {
@@ -51,9 +51,9 @@ const contactChannels = [
 ]
 
 const offices = [
-  { city: "Boston", country: "USA", role: "Global HQ & R&D", email: "boston@verdantiabio.com", phone: "+1 (800) 555-0142" },
-  { city: "Hyderabad", country: "India", role: "Manufacturing & Operations", email: "hyderabad@verdantiabio.com", phone: "+91 40 4567 8901" },
-  { city: "Rotterdam", country: "Netherlands", role: "EU Distribution & Sales", email: "europe@verdantiabio.com", phone: "+31 10 123 4567" },
+  { city: "Boston", country: "USA", role: "Global HQ & R&D", email: "boston@naturesole.com", phone: "+1 (800) 555-0142" },
+  { city: "Hyderabad", country: "India", role: "Manufacturing & Operations", email: "hyderabad@naturesole.com", phone: "+91 40 4567 8901" },
+  { city: "Rotterdam", country: "Netherlands", role: "EU Distribution & Sales", email: "europe@naturesole.com", phone: "+31 10 123 4567" },
 ]
 
 const inquiryTypes = [
