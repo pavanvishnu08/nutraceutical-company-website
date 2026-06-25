@@ -5,7 +5,6 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Leaf, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -72,16 +71,18 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button
-            asChild
-            variant="ghost"
-            className="text-foreground hover:bg-secondary hover:text-primary"
+          <Link
+            href="/about#certifications"
+            className="inline-flex h-10 items-center justify-center rounded-lg px-4 text-sm font-medium text-foreground transition-colors hover:bg-secondary hover:text-primary"
           >
-            <Link href="/about#certifications">Certifications</Link>
-          </Button>
-          <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link href="/contact">Request a Quote</Link>
-          </Button>
+            Certifications
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Request a Quote
+          </Link>
         </div>
 
         <button
@@ -113,11 +114,13 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <Button asChild className="mt-2 bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href="/contact" onClick={() => setOpen(false)}>
-                Request a Quote
-              </Link>
-            </Button>
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="mt-2 inline-flex h-10 items-center justify-center rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              Request a Quote
+            </Link>
           </nav>
         </div>
       )}
