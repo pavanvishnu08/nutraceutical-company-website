@@ -1,5 +1,4 @@
-import { ArrowRight, ShieldCheck } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ArrowRight, ShieldCheck, FlaskRound, Leaf } from "lucide-react"
 
 const stats = [
   { value: "120+", label: "Standardized Extracts" },
@@ -7,95 +6,118 @@ const stats = [
   { value: "99.9%", label: "Batch Consistency" },
 ]
 
+const badges = [
+  { icon: ShieldCheck, label: "GMP Certified" },
+  { icon: FlaskRound, label: "HPLC Verified" },
+  { icon: Leaf, label: "Traceable Sourcing" },
+]
+
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-background pt-18">
-      {/* faint vertical rules for editorial structure */}
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden">
+      {/* Full-bleed background image */}
+      <img
+        src="/images/botanical-field.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 size-full object-cover object-center scale-105"
+      />
+
+      {/* Gradient overlays — strong left for text readability, lets warm gold light through on right */}
       <div
-        className="pointer-events-none absolute inset-0 mx-auto hidden max-w-7xl rule-grid opacity-60 lg:block"
+        className="absolute inset-0 bg-gradient-to-r from-background/97 via-background/88 to-background/20"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/85"
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-x-12 gap-y-16 px-5 pb-20 pt-20 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-32 lg:pt-28">
-        <div className="max-w-xl">
+      {/* Decorative editorial grid */}
+      <div
+        className="pointer-events-none absolute inset-0 mx-auto hidden max-w-7xl rule-grid opacity-20 lg:block"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto w-full max-w-7xl px-5 pb-28 pt-32 sm:px-8 sm:pb-36 sm:pt-40">
+        {/* Text content — left half */}
+        <div className="max-w-2xl">
           <span className="eyebrow text-primary">
             <ShieldCheck className="size-3.5" aria-hidden="true" />
             GMP &amp; ISO Certified Manufacturer
           </span>
 
-          <h1 className="display mt-8 text-pretty text-5xl text-foreground sm:text-6xl lg:text-[4.25rem]">
+          <h1 className="display mt-8 text-pretty text-5xl text-foreground sm:text-6xl lg:text-[4.5rem]">
             The science of
             <span className="italic text-primary"> purity </span>
             in every botanical extract
           </h1>
 
-          <p className="mt-7 max-w-md text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-7 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
             Verdantia Biosciences manufactures high-purity plant extracts and active
             ingredients trusted by pharmaceutical, nutraceutical and wellness brands
             across the globe — engineered for potency, consistency and absolute
             traceability.
           </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full bg-primary px-7 text-primary-foreground hover:bg-primary/90"
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="#ingredients"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-300 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30"
             >
-              <a href="#ingredients">
-                Explore Ingredients
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="ghost"
-              className="rounded-full px-7 text-primary hover:bg-secondary"
+              Explore Ingredients
+              <ArrowRight className="size-5" aria-hidden="true" />
+            </a>
+            <a
+              href="#inquiry"
+              className="inline-flex items-center justify-center rounded-full border-2 border-foreground/20 bg-background/60 px-8 py-4 text-base font-semibold text-foreground backdrop-blur-sm transition-all duration-300 hover:border-primary hover:bg-background/80 hover:text-primary"
             >
-              <a href="#inquiry">Request Bulk Quote</a>
-            </Button>
+              Request Bulk Quote
+            </a>
           </div>
 
-          <dl className="mt-14 grid grid-cols-3 gap-8 border-t border-border pt-9">
+          {/* Stats */}
+          <dl className="mt-16 grid grid-cols-3 gap-8 border-t border-border/50 pt-10">
             {stats.map((s) => (
               <div key={s.label}>
-                <dt className="sr-only">{s.label}</dt>
                 <dd className="font-heading text-4xl font-light tracking-tight text-foreground">
                   {s.value}
                 </dd>
-                <p className="mt-2 text-xs leading-snug text-muted-foreground">
-                  {s.label}
-                </p>
+                <p className="mt-2 text-xs leading-snug text-muted-foreground">{s.label}</p>
               </div>
             ))}
           </dl>
         </div>
+      </div>
 
-        <div className="relative">
-          {/* gold frame offset */}
-          <div
-            className="absolute -right-3 -top-3 bottom-8 left-8 rounded-[2rem] border border-gold/40"
-            aria-hidden="true"
-          />
-          <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-[0_40px_80px_-40px_rgba(35,75,58,0.45)]">
-            <img
-              src="/images/hero-lab.png"
-              alt="Scientist examining a vial of golden botanical extract in a modern laboratory"
-              className="aspect-[4/5] w-full object-cover"
-            />
-          </div>
-          <div className="absolute -bottom-6 -left-4 hidden max-w-[16rem] rounded-2xl border border-border bg-card p-5 shadow-xl sm:block">
-            <div className="flex items-center gap-2">
-              <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
-              <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                HPLC Verified
-              </p>
-            </div>
-            <p className="mt-2 font-heading text-base font-medium leading-snug text-foreground">
-              Every batch documented with a Certificate of Analysis.
+      {/* Floating badge cards — bottom right */}
+      <div className="absolute bottom-10 right-6 hidden flex-col gap-3 lg:flex">
+        {/* HPLC verified card */}
+        <div className="animate-float w-56 rounded-2xl border border-border bg-card/95 p-5 shadow-2xl backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              HPLC Verified
             </p>
           </div>
+          <p className="mt-2 font-heading text-sm font-medium leading-snug text-foreground">
+            Every batch documented with a Certificate of Analysis.
+          </p>
+        </div>
+
+        {/* Certification badges row */}
+        <div className="flex gap-2">
+          {badges.map((b) => (
+            <div
+              key={b.label}
+              className="flex flex-col items-center gap-1.5 rounded-xl border border-border bg-card/90 px-3 py-3 shadow-lg backdrop-blur-md"
+            >
+              <b.icon className="size-5 text-primary" aria-hidden="true" />
+              <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
+                {b.label}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

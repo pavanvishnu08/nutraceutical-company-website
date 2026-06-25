@@ -199,11 +199,12 @@ export default function CatalogPage() {
                 ) : (
                   <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                     {filtered.map((item) => (
-                      <article
+                      <Link
                         key={item.slug}
-                        className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-shadow duration-300 hover:shadow-[0_24px_48px_-24px_rgba(35,75,58,0.35)]"
+                        href={`/products/${item.slug}`}
+                        className="card-3d group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/10"
                       >
-                        {/* Category badge */}
+                        {/* Image */}
                         <div className="relative overflow-hidden bg-secondary">
                           <img
                             src={item.image || "/placeholder.svg"}
@@ -213,14 +214,14 @@ export default function CatalogPage() {
                           <span className="absolute left-4 top-4 rounded-full bg-background/90 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.12em] text-foreground/75 backdrop-blur">
                             {item.category}
                           </span>
-                          <span className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 font-mono text-[11px] font-medium text-primary-foreground">
+                          <span className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 font-mono text-[11px] font-semibold text-primary-foreground">
                             {item.purity} pure
                           </span>
                         </div>
 
                         <div className="flex flex-1 flex-col p-6">
                           <div>
-                            <h2 className="font-heading text-xl font-medium text-foreground">
+                            <h2 className="font-heading text-xl font-medium text-foreground transition-colors group-hover:text-primary">
                               {item.name}
                             </h2>
                             <p className="mt-0.5 text-sm italic text-muted-foreground">
@@ -228,7 +229,7 @@ export default function CatalogPage() {
                             </p>
                           </div>
 
-                          <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                          <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
                             {item.benefit}
                           </p>
 
@@ -252,16 +253,13 @@ export default function CatalogPage() {
                                 {item.standardization}
                               </p>
                             </div>
-                            <Link
-                              href={`/products/${item.slug}`}
-                              className="flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-                            >
+                            <span className="flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">
                               View Details
                               <ArrowUpRight className="size-3.5" />
-                            </Link>
+                            </span>
                           </div>
                         </div>
-                      </article>
+                      </Link>
                     ))}
                   </div>
                 )}
